@@ -7,34 +7,15 @@
   }
 }
 
-@keyframes scale-heart {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.25);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes sparks-burst {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 .page {
-  min-inline-size: 375px;
+  /* min-inline-size: 375px; */
   min-block-size: 100dvb;
   font-family: var(--font-main);
   font-weight: var(--font-weight-body);
   padding-top: var(--padding-m);
   background-image: var(--background-image);
+  background-color: var(--background-color);
+  background-attachment: fixed;
 }
 
 .header {
@@ -43,11 +24,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--padding-m);
+  margin-block-end: var(--padding-m);
+  padding-block: var(--padding-block-header);
 }
 
 .container {
-  block-size: var(--header-height);
   inline-size: var(--container-width);
   margin-inline: auto;
 }
@@ -94,41 +75,43 @@
 
 .card__image-wrapper {
   position: relative;
-  inline-size: var(--image-inline-size);
   aspect-ratio: 1 / 1;
+  border-block: 2px solid var(--main-color);
 }
 
 .card__image {
   width: 100%;
   height: 100%;
+  object-fit: cover; 
+  object-position: center;
   display: block;
 }
 
-.trafic-sign {
+.filter-grayscale-blur {
   filter: grayscale(30%) blur(2px);
 }
 
-.fork {
+.filter-sepia {
   filter: sepia(60%);
 }
 
-.robot {
+.filter-hue-rotate {
   filter: hue-rotate(105deg);
 }
 
-.campaign {
+.filter-brightness-contrast {
   filter: brightness(0.6) contrast(1.1);
 }
 
-.strategy {
+.filter-blur {
   filter: blur(3px);
 }
 
-.chair {
+.filter-grayscale {
   filter: grayscale(100%);
 }
 
-.road {
+.filter-brightness-contrast-saturate-hue-rotate {
   filter: brightness(1.2) contrast(1.1) saturate(1.5) hue-rotate(-10deg);
 }
 
@@ -146,7 +129,7 @@
     1px 1px 0 var(--label-shadow-color);
 }
 
-@supports (-webkit-text-stroke: 0.5px var(--label-shadow-color)) {
+@supports (-webkit-text-stroke: 1px var(--label-shadow-color)) {
   .card__label {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--label-shadow-color);
@@ -163,10 +146,6 @@
 }
 
 .card__description {
-  padding-block-end: 27px;
-}
-
-.card__thought {
   padding-block-end: var(--padding-s);
 }
 
@@ -179,7 +158,8 @@
 .card__icon-button {
   background-color: var(--background-color);
   border: none;
-}
+  transition: background-color 0.3s ease;
+}     
 
 .card__icon-button:focus-visible {
   outline: none;
@@ -188,84 +168,6 @@
 .card__icon-button:focus-visible .like-icon {
   outline: 2px solid var(--main-color);
   outline-offset: -1px;
-}
-
-.like-icon .core {
-  fill: none;
-  transition: fill 0.3s ease;
-}
-
-.like-icon .main-body {
-  transition: fill 0.3s ease 0.05s;
-}
-
-.card__icon-button:hover .core {
-  fill: var(--contour-color);
-}
-
-.card__icon-button:hover .main-body {
-  fill: var(--contour-color);
-}
-
-.card__icon-button:not(:hover) .core {
-  transition: fill 0.3s ease 0.03s;
-}
-
-.card__icon-button:not(:hover) .main-body {
-  transition: fill 0.3s ease;
-}
-
-.card__icon-button:active .core {
-  fill: var(--animation-fill-color);
-}
-
-.card__icon-button:active .main-body {
-  fill: var(--animation-fill-color);
-}
-
-.card__icon-button:not(:active) .core {
-  transition: fill 0.3s ease 0.03s;
-}
-
-.card__icon-button:not(:active) .main-body {
-  transition: fill 0.3s ease;
-}
-
-.sparks {
-  opacity: 0;
-  transition: opacity 0.3s ease-in;
-}
-
-.like-icon.is-liked .core {
-  fill: var(--core-color);
-  transition-delay: 0s;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--core-color);
-  transition-delay: 0.05s;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--core-color);
-  transition-delay: 0.06s;
-}
-
-.like-icon.is-liked g {
-  animation: scale-heart 0.3s ease-in 0.1s forwards;
-}
-
-.like-icon g {
-  transform-origin: center;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks-burst 0.3s ease-in 0.3s forwards;
-}
-
-.like-icon:not(.is-liked) .contour {
-  fill: var(--contour-color);
-  transition: fill 0.1s linear;
 }
 
 .card__like-button {
@@ -281,7 +183,7 @@
   isolation: isolate;
 }
 
-.card__like-button::before {
+.button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -292,7 +194,7 @@
   z-index: 1;
 }
 
-.card__like-button:hover::before {
+.button:hover::before {
   transform: scaleX(1);
 }
 
@@ -335,21 +237,6 @@
 
 .save-button:focus {
   outline: none;
-}
-
-.save-button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--main-color);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease-in-out;
-  z-index: 1;
-}
-
-.save-button:hover::before {
-  transform: scaleX(1);
 }
 
 .save-icon {
@@ -395,6 +282,7 @@ dialog::backdrop {
   inline-size: 257px;
   background-color: transparent;
   border: 2px solid var(--main-color);
+  text-transform: uppercase;
 }
 
 .save-dialog__ok-button:hover {
