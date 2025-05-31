@@ -357,6 +357,7 @@
   z-index: 2;
   fill: var(--accent-color);
   mix-blend-mode: difference;
+  flex-shrink: 0;
 }
 
 .save-dialog {
@@ -366,10 +367,6 @@
 
 dialog::backdrop {
   background-color: var(--backdrop-color);
-}
-
-.save-icon {
-  flex-shrink: 0;
 }
 
 .save-dialog__content {
