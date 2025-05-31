@@ -9,7 +9,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
 }
 
 h1,
@@ -21,6 +21,7 @@ h6,
 p,
 ul,
 ol,
+img,
 li {
   margin: 0;
   padding: 0;
@@ -50,4 +51,9 @@ ol {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+dialog {
+  padding: 0;
+  border: none;
 }
