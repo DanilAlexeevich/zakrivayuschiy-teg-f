@@ -9,15 +9,14 @@
   --button-block-size: 38px;
   --button-inline-size: 130px;
   --header-height: clamp(20.438rem, 17.481rem + 12.615vi, 23rem);
-  --container-width: calc(clamp(23.438rem, 0.288rem + 98.769vi, 43.5rem) - 14px);
   --label-shadow-color: #ffffff;
   --padding-s: 25px;
   --padding-m: 100px;
   --main-color: #000000;
   --accent-color: #ffffff;
   --background-color: #ffffff;
-  --header-logo-title-font-size: clamp(3.063rem, 1.909rem + 4.923vi, 4.063rem);
-  --header-logo-subtitle-font-size: clamp(0.875rem, 0.226rem + 2.769vi, 1.438rem);
+  --header-logo-title-font-size: clamp(3.063rem, 2.71rem + 1.502vw, 4.063rem);
+  --header-logo-subtitle-font-size: clamp(0.875rem, 0.677rem + 0.845vw, 1.438rem);
   --background-image: repeating-linear-gradient(
       to right,
       #d3d3d3 0,
@@ -33,7 +32,7 @@
       transparent 4px
     ),
     linear-gradient(to bottom, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
-  --card-width: calc(clamp(23.438rem, 0rem + 100vi, 43.75rem) - 18px);
+  --card-width: clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem);
   --save-dialog-width: clamp(21.313rem, 20.447rem + 3.692vi, 22.063rem);
   --backdrop-color: rgba(0, 0, 0, 0.75);
   --contour-color: #000;

@@ -26,11 +26,12 @@
   justify-content: center;
   margin-block-end: var(--padding-m);
   padding-block: var(--padding-block-header);
+  margin-inline: auto;
 }
 
 .container {
-  inline-size: var(--container-width);
-  margin-inline: auto;
+  inline-size: var(--card-width);
+  max-inline-size: 100%;
 }
 
 .logo-group {
@@ -65,6 +66,7 @@
 
 .card-width {
   inline-size: var(--card-width);
+  max-inline-size: 100%;
   margin-inline: auto;
 }
 
@@ -234,12 +236,12 @@
 
 .card__icon-button:active .core {
   fill: var(--animation-fill-color);
-  transition: fill 0.3s ease 0.03s;
+  transition: fill 0.3s ease;
 }
 
 .card__icon-button:active .main-body {
   fill: var(--animation-fill-color);
-  transition: fill 0.3s ease;
+  transition: fill 0.3s ease 0.05s;
 }
 
 .sparks {
@@ -259,7 +261,7 @@
 
 .like-icon.is-liked .contour {
   fill: var(--core-color);
-  transition-delay: 0.06s;
+  transition: fill 0.3s ease 0.06s;
 }
 
 .like-icon.is-liked g {
